@@ -1,0 +1,89 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "requirements-to-test"
+version = "1.0.0"
+authors = [
+    {name = "AI Assistant", email = "ai@example.com"},
+]
+description = "Convert natural language requirements into testable checklists and pytest code"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.7"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Text Processing :: Linguistic",
+]
+keywords = ["testing", "requirements", "pytest", "gui", "wxpython", "test-generation"]
+dependencies = [
+    "wxPython>=4.2.0",
+    "pytest>=7.0.0",
+    "typing-extensions>=4.0.0;python_version<'3.8'",
+]
+
+[project.optional-dependencies]
+dev = [
+    "build",
+    "twine",
+    "pytest-cov",
+    "black",
+    "flake8",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/requirements-to-test"
+Repository = "https://github.com/yourusername/requirements-to-test.git"
+Documentation = "https://github.com/yourusername/requirements-to-test#readme"
+"Bug Tracker" = "https://github.com/yourusername/requirements-to-test/issues"
+
+[project.scripts]
+requirements-to-test = "requirements_to_test.gui:main"
+
+[project.gui-scripts]
+requirements-to-test-gui = "requirements_to_test.gui:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["requirements_to_test*"]
+exclude = ["tests*"]
+
+[tool.setuptools.package-data]
+requirements_to_test = ["*.txt", "*.md"]
+
+[tool.black]
+line-length = 88
+target-version = ['py37']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --strict-markers"
+testpaths = [
+    "tests",
+] 

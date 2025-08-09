@@ -1,0 +1,5 @@
+[console_scripts]
+requirements-to-test = requirements_to_test.gui:main
+
+[gui_scripts]
+requirements-to-test-gui = requirements_to_test.gui:main

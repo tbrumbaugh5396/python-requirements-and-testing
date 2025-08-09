@@ -1,0 +1,12 @@
+wxPython>=4.2.0
+pytest>=7.0.0
+
+[:python_version < "3.8"]
+typing-extensions>=4.0.0
+
+[dev]
+build
+twine
+pytest-cov
+black
+flake8

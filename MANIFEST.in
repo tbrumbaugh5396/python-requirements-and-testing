@@ -1,0 +1,10 @@
+include README.md
+include LICENSE
+include requirements.txt
+include pyproject.toml
+include sample_*.py
+include sample_*.txt
+recursive-include requirements_to_test *.py
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+global-exclude .DS_Store 
