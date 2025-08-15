@@ -5,9 +5,14 @@ Example script to test the TestRunner functionality
 
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from requirements_to_test_gui import TestRunner, RequirementsParser, TestCodeGenerator
+# Enable local runs without installation: add src to path
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+SRC_DIR = os.path.join(PROJECT_ROOT, 'src')
+if SRC_DIR not in sys.path:
+    sys.path.insert(0, SRC_DIR)
+
+from requirements_to_test import TestRunner, RequirementsParser, TestCodeGenerator
 
 def test_runner_functionality():
     """Test the TestRunner with sample requirements"""

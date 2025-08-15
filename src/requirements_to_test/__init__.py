@@ -10,13 +10,13 @@ __author__ = "AI Assistant"
 __email__ = "ai@example.com"
 __description__ = "Convert natural language requirements into testable checklists and pytest code"
 
-from .gui import RequirementsApp, MainFrame
+# Export only lightweight, non-GUI components by default to avoid wx dependency on import
 from .parser import RequirementsParser
 from .generator import TestCodeGenerator
+from .runner import TestRunner
 
 __all__ = [
-    'RequirementsApp',
-    'MainFrame', 
     'RequirementsParser',
-    'TestCodeGenerator'
+    'TestCodeGenerator',
+    'TestRunner'
 ] 

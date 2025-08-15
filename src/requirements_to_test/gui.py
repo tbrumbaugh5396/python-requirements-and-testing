@@ -7,8 +7,13 @@ import os
 from typing import List, Dict
 from datetime import datetime
 
-from .parser import RequirementsParser
-from .generator import TestCodeGenerator
+try:
+    from .parser import RequirementsParser
+    from .generator import TestCodeGenerator
+except Exception:
+    # Allow direct execution of this module
+    from requirements_to_test.parser import RequirementsParser
+    from requirements_to_test.generator import TestCodeGenerator
 
 
 class RequirementsPanel(wx.Panel):
